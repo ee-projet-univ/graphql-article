@@ -1,6 +1,6 @@
 ## Initialisation du projet
 
-- Création d'un nouveau repo git "graphql-articles"
+- Création d'un nouveau repo git "graphql-articles", dans ce dossier :
 - _git clone_
 - `npm init -y`
 - `package.json` => `"start": "nodemon --exec babel-node server/index.js"`
@@ -10,7 +10,19 @@
 
 - `npm i body-parser cors express express-graphql graphql graphql-tools graphql-yoga jsonwebtoken merge-graphql-schemas mongoose mongoose-unique-validator slug`
 
-- `npm i -D @babel/cli @babel/core @babel/preset-env concurrently nodemon`
+- `npm i -D @babel/cli @babel/core @babel/preset-env @babel/node concurrently nodemon`
+
+## Configuration babel
+
+Créer le fichier `.babelrc`
+
+```
+{
+    "presets": [
+        "@babel/preset-env"
+    ]
+}
+```
 
 ## Déclaration des _models_
 
@@ -18,14 +30,10 @@ Les _models_ sont les déclaration des schemas _mongo_
 
 - Copier le dossier _models_ dans le dossier _server_
 
-- Créer le _model_ "Comment" : 
-  - body: String,
-  - author: ref: 'User'
-  - article: ref: 'Article'
-
 ## Déclaration de _graphql_
 
-Le dossier graphql contient la configuration GraphQL : 
+Le dossier graphql contient la configuration GraphQL :
+
 - _resolvers_ : contient les _queries_ et _mutations_ (https://graphql.org/learn/queries/)
 - _types_ : contient les _schemas_ (https://graphql.org/learn/schema/)
 
@@ -34,53 +42,9 @@ Le dossier graphql contient la configuration GraphQL :
 
 ## Implémentation du serveur
 
-```js
-import { GraphQLServer } from "graphql-yoga";
-import mongoose from "mongoose";
-import User from "./models/User";
-import Article from "./models/Article";
-import Comment from "./models/Comment";
-import schema from "../graphql";
+- Copier le fichier `index.js` dans le dossier _server_
 
-const options = {
-  port: process.env.PORT || "4000",
-  endpoint: "/graphql",
-  playground: "/playground"
-};
-
-const models = {
-    Article,
-    Comment,
-    User
-}
-
-const context = {
-  models,
-};
-
-// Connect to MongoDB with Mongoose.
-mongoose
-  .connect(
-    'mongodb://localhost/conduit',
-    {
-      useCreateIndex: true,
-      useNewUrlParser: true
-    }
-  )
-  .then(() => console.log("MongoDB connected"))
-  .catch(err => console.log(err));
-
-const server = new GraphQLServer({
-  schema,
-  context
-});
-
-server.start(options, ({ port }) => {
-  console.log(`🚀  Server is running on http://localhost:${port}`);
-});
-```
-
-## Test du serveur : 
+## Test du serveur :
 
 - `npm start`
 - http://localhost:4000/playground
@@ -109,5 +73,9 @@ query {
 ```
 
 ### Créer un article
+
 ### Créer un commentaire
+
 ### Récupérer la liste des articles et leur commentaire
+
+### Récupérer les trois permiers articles par date de création
