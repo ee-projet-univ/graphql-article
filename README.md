@@ -79,3 +79,9 @@ query {
 ### Récupérer la liste des articles et leur commentaire
 
 ### Récupérer les trois permiers articles par date de création
+
+(Help: https://mongoosejs.com/docs/queries.html)
+
+### Implémenter une query permettant d'effectuer une recherche sur le body d'un article et le body d'un commentaire
+
+(Help : https://graphql.org/learn/schema/#union-types)
