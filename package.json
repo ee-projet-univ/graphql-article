@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/ee-projet-univ/graphql-article#readme",
   "dependencies": {
-    "@babel/cli": "^7.2.3",
+    "@babel/cli": "^7.19.3",
     "@babel/core": "^7.3.3",
     "@babel/preset-env": "^7.3.1",
     "body-parser": "^1.18.3",
