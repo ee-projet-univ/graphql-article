@@ -34,7 +34,7 @@
     "merge-graphql-schemas": "^1.5.8",
     "mongoose": "^5.7.5",
     "mongoose-unique-validator": "^2.0.2",
-    "nodemon": "^1.18.10",
+    "nodemon": "^2.0.20",
     "slug": "^0.9.3"
   },
   "devDependencies": {
