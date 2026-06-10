@@ -22,10 +22,10 @@
     "@babel/cli": "^7.19.3",
     "@babel/core": "^7.3.3",
     "@babel/preset-env": "^7.3.1",
-    "body-parser": "^1.20.5",
+    "body-parser": "^2.2.2",
     "concurrently": "^7.6.0",
     "cors": "^2.8.5",
-    "express": "^4.22.2",
+    "express": "^5.2.1",
     "express-graphql": "^0.7.1",
     "graphql": "^14.1.1",
     "graphql-tools": "^9.0.28",
@@ -34,7 +34,7 @@
     "merge-graphql-schemas": "^1.5.8",
     "mongoose": "^8.22.1",
     "mongoose-unique-validator": "^2.0.2",
-    "nodemon": "^2.0.20",
+    "nodemon": "^3.1.14",
     "slug": "^0.9.3"
   },
   "devDependencies": {
